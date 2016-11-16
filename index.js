@@ -9,6 +9,8 @@ import {
 } from 'react-native'
 import styles from './styles'
 
+const panThreshold = 1;
+
 var SwipeoutBtn = React.createClass({
   getDefaultProps: function() {
     return {
@@ -98,7 +100,7 @@ var Swipeout = React.createClass({
 , componentWillMount: function() {
     this._panResponder = PanResponder.create({
       onStartShouldSetPanResponder: (event, gestureState) => true,
-      onMoveShouldSetPanResponder: (event, gestureState) => !(gestureState.dx === 0 || gestureState.dy === 0),
+      onMoveShouldSetPanResponder: (event, gestureState) => return !(Math.abs(gestureState.dx) < panThreshold || Math.abs(gestureState.dy) < panThreshold),
       onPanResponderGrant: this._handlePanResponderGrant,
       onPanResponderMove: this._handlePanResponderMove,
       onPanResponderRelease: this._handlePanResponderEnd,
