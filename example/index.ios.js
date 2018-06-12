@@ -12,6 +12,7 @@ var {
   Text,
   View,
 } = React;
+const createClass = require('create-react-class');
 
 //  include react-native-swipeout
 var Swipeout = require('react-native-swipeout')
@@ -23,7 +24,7 @@ var rows = require('./data.js')
 var styles = require('./styles.js')
 
 //  example swipout app
-var swipeoutExample = React.createClass({
+var swipeoutExample = createClass({
   getInitialState: function() {
     //  datasource rerendered when change is made (used to set swipeout to active)
     var ds = new ListView.DataSource({rowHasChanged: (row1, row2) => true})

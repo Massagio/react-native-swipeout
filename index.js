@@ -8,10 +8,11 @@ import {
     View
 } from 'react-native'
 import styles from './styles'
+import createClass from 'create-react-class';
 
 const panThreshold = 2;
 
-var SwipeoutBtn = React.createClass({
+var SwipeoutBtn = createClass({
   getDefaultProps: function() {
     return {
       backgroundColor: null,
@@ -74,7 +75,7 @@ var SwipeoutBtn = React.createClass({
   }
 })
 
-var Swipeout = React.createClass({
+var Swipeout = createClass({
   mixins: [tweenState.Mixin]
 , getDefaultProps: function() {
     return {
